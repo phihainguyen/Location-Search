@@ -1,6 +1,9 @@
 html {
   box-sizing: border-box;
-  background: #ffc600;
+  background: linear-gradient(rgba(68, 68, 66, 0.363), rgba(56, 55, 52, 0.185)),
+    url(../matteo-catanese.jpg);
+  background-size: cover;
+  background-repeat: none;
   font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
@@ -20,6 +23,7 @@ input {
 .search-form {
   max-width: 500px;
   margin: 50px auto;
+  overflow: hidden;
 }
 input.search {
   margin: 0;
