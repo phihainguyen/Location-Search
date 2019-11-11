@@ -9,7 +9,7 @@ async function getData() {
   const response = await fetch(endpoint);
   const data = await response.json();
   cities.push(...data);
-  console.log(cities);
+  console.log(response);
 }
 //this following method is a way to also use fetch but using the .then() which returns a promise
 // fetch(endpoint).then(blob => blob.json().then(data => cities.push(...data)));
