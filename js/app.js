@@ -4,8 +4,15 @@ const endpoint =
   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
 
 const cities = [];
-
-fetch(endpoint).then(blob => blob.json().then(data => cities.push(...data)));
+getData();
+async function getData() {
+  const response = await fetch(endpoint);
+  const data = await response.json();
+  cities.push(...data);
+  console.log(cities);
+}
+//this following method is a way to also use fetch but using the .then() which returns a promise
+// fetch(endpoint).then(blob => blob.json().then(data => cities.push(...data)));
 
 function findMatch(wordToMatch, cities) {
   return cities.filter(place => {
