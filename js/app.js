@@ -14,6 +14,12 @@ async function getData() {
 //this following method is a way to also use fetch but using the .then() which returns a promise
 // fetch(endpoint).then(blob => blob.json().then(data => cities.push(...data)));
 
+function numberCommas(x) {
+  return x
+    .toString()
+    .split(/(?=(?:\d{3})+(?:\.|$))/g)
+    .join(",");
+}
 function findMatch(wordToMatch, cities) {
   return cities.filter(place => {
     //we need to create a regex(regular expression to allow us to use the wordToMatch parameter as what we are searching for in the regex)
@@ -38,10 +44,11 @@ function displayMatches() {
         regex,
         `<span class="hl">${this.value}</span>`
       );
+      const population = numberCommas(place.population);
 
       return `<li>
     <span class= "name"> ${cityName}, ${stateName}</span>
-    <span class = "population">Population: ${place.population}</span>
+    <span class = "population">Population: ${population}</span>
     </li>`;
     })
     .join("");
